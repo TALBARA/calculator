@@ -7,7 +7,7 @@ buttons.forEach(element => {
     element.addEventListener("click", () => {
         const button = element.getAttribute("data-value");
 
-        if (button != "+" && button != "-" && button != "x" && button != "=" && button != ",") {
+        if (button != "+" && button != "-" && button != "*" && button != "=" && button != ",") {
         
             buttonsSelected.push(button);
 
@@ -27,10 +27,18 @@ buttons.forEach(element => {
                 calculator.trigger = true;
                 print(calculator);
             }else{
-                console.log(buttonsSelected);
-                calculator.currentValue = parseButtonsSelected;
-                operation(calculator);
-                buttonsSelected.length = 0;
+
+                if (calculator.operator != button) {
+                    console.log("Boton cambiado" + button);
+                    calculator.operator = button;
+                    previousValue.textContent = `${calculator.previousValue}${calculator.operator}`;
+                }else{
+                    console.log("Trigger true");
+                    console.log(buttonsSelected);
+                    calculator.currentValue = parseButtonsSelected;
+                    operation(calculator);
+                    buttonsSelected.length = 0;
+                }
             }
         }
     })
@@ -66,11 +74,39 @@ function operation(calculator){
         previousValue.textContent = `${sum}${calculator.operator}`;
         calculator.previousValue = sum;
         break;
+
         case "-":
-        let res = parseInt(calculator.currentValue) - parseInt(calculator.previousValue);
+        console.log(calculator);
+        let res = parseInt(calculator.previousValue) - parseInt(calculator.currentValue);
+        console.log("Resta " + res);
+
+        currentValue.textContent = res;
+        if (res == 0) {
+            previousValue.textContent = "";
+        }else{
+            previousValue.textContent = `${res}${calculator.operator}`;
+        }
+        calculator.previousValue = res;
+        break;
 
         case "*":
-        let mul =  calculator.currentValue * calculator.previousValue;
+        console.log(calculator);
+        let mul =  parseInt(calculator.currentValue) * parseInt(calculator.previousValue);
+        console.log("Multi " + mul);
+
+        currentValue.textContent = mul;
+        if (mul == 0) {
+            previousValue.textContent = "";
+        }else{
+            previousValue.textContent = `${mul}${calculator.operator}`;
+        }
+        calculator.previousValue = mul;
+        
+        break;
+
+        case "=":
+
+        break;
     }
 }
 
