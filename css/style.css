@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f2f2f2, #dcdcdc);
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.calculator{
+    width: 25%;
+
+    background-color: rgb(33, 31, 31);
+    padding: 0.2rem;
+    border-radius: 8px;
+}
+
+.result {
+    border: solid rgb(43, 43, 43);
+    border-radius: 8px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.result p {
+    color: white;
+    font-size: 3rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 100;
+    padding-right: 1rem;
+    margin: 0;
+}
+
+#result-operation{
+    font-size: 1.1rem;
+    color: rgb(162, 160, 160);
+    height: 1rem;
+    padding: 1rem;
+}
+
+.buttons{
+    width: 100%;
+    border:none;
+}
+
+.operation-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.operation-buttons p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    height: 5vh;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(86, 84, 84);
+    color: white;
+    font-size: 1.3rem;
+    margin: 0;
+    border: solid rgb(33, 31, 31);
+}
+
+.operation-buttons p:hover {
+    background-color: rgb(56, 54, 54);
+    cursor: pointer;
+}
+
+#btn-equals{
+    background-color: rgb(47, 173, 212);
+    color: black;
+    font-size: 1.5rem;
+}
+
+#btn-equals:hover{
+    background-color: rgb(69, 198, 238);
+    color: black;
+    font-size: 1.5rem;
+}
+
+p.operation-action {
+    background-color: rgb(56, 54, 54);
+}
+
+p.operation-action:hover {
+    background-color: rgb(86, 84, 84);
+}
