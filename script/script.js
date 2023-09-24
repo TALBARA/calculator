@@ -13,6 +13,12 @@ buttons.forEach(element => {
 
             currentValue.textContent = buttonsSelected.join("");
 
+            if (button == "C") {
+                resetC();
+            }else if (button == "CE"){
+                resetCE();
+            }
+
         }else{
 
             let parseButtonsSelected = buttonsSelected.join("");
@@ -101,7 +107,7 @@ function operation(calculator){
             previousValue.textContent = `${mul}${calculator.operator}`;
         }
         calculator.previousValue = mul;
-        
+
         break;
 
         case "=":
@@ -110,3 +116,13 @@ function operation(calculator){
     }
 }
 
+function resetC(){
+    currentValue.textContent = 0;
+    previousValue.textContent = "";
+    buttonsSelected.length = 0;
+}
+
+function resetCE(){
+    currentValue.textContent = 0;
+    buttonsSelected.length = 0;
+}
